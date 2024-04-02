@@ -48,7 +48,7 @@ export class Car {
   get DeleteButton() {
     if (this.creatorId == AppState.account?.id) { // creatorId's are the account ids of the user that created the car. So we can compare them, to verify ownership
       return `
-      <button onclick="app.CarsController.deleteCar('${this.id}')" class="btn btn-danger" title="delete this car"><i class="mdi mdi-delete-forever"></i></button>
+      <button onclick="app.CarsController.removeCar('${this.id}')" class="btn btn-danger" title="delete this car"><i class="mdi mdi-delete-forever"></i></button>
       `
     }
     return ''

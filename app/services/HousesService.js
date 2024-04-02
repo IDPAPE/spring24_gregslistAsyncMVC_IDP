@@ -13,6 +13,21 @@ class HousesService {
         console.log(AppState.houses)
     }
 
+    async addHouse(houseData) {
+        const response = await api.post('api/houses', houseData)
+        console.log('new api thingy', response)
+        const house = new House(response.data)
+        AppState.houses.push(house)
+    }
+
+    async removeHouse(houseId) {
+        const response = await api.delete(`api/houses/${houseId}`)
+        console.log('response', response)
+        const indexRemoved = AppState.houses.findIndex(house => house.id == houseId)
+        console.log(AppState.houses[indexRemoved])
+        AppState.houses.splice(indexRemoved, 1)
+    }
+
 
 }
 

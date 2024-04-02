@@ -1,5 +1,47 @@
 <div class="container">
-    <form id="houses-form" onsubmit="">
+    <form id="houses-form" onsubmit="app.HousesController.addHouse()" class="row bg-white p-4 m-3">
+        <div class="col-12">
+            <h1>Create New Listing</h1>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <label for="house-img">Image Url</label>
+                <input id="house-img" type="text" name="imgUrl" required class="form-control">
+            </div>
+            <div class="col-4">
+                <label for="house-price">Price</label>
+                <input type="number" id="house-price" name="price" required class="form-control">
+            </div>
+            <div class="col-4">
+                <label for="house-year">Year Built</label>
+                <input type="number" id="house-year" name="year" required class="form-control">
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-3">
+                <label for="bedrooms">Bedrooms</label>
+                <input type="number" id="bedrooms" name="bedrooms" required class="form-control">
+            </div>
+            <div class="col-3">
+                <label for="bathrooms">Bathrooms</label>
+                <input type="number" id="bathrooms" name="bathrooms" required class="form-control">
+            </div>
+            <div class="col-3">
+                <label for="floors">Floors</label>
+                <input type="number" id="floors" name="levels" required class="form-control">
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-10">
+                <label for="description">Description</label>
+                <input type="text" id="description" name="description" required class="form-control">
+            </div>
+        </div>
+        <div class="row justify-content-end">
+            <div class=" col-2 mt-3 ">
+                <button class=" btn btn-rounded border-dark">Submit</button>
+            </div>
+        </div>
 
 
 

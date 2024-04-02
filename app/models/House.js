@@ -1,3 +1,6 @@
+import { AppState } from "../AppState.js"
+
+
 export class House {
     constructor(data) {
         this.id = data.id
@@ -25,10 +28,21 @@ export class House {
                     <p class="card-text">${this.bedrooms} bed | ${this.bathrooms} bath | ${this.levels} floors</p>
                     <p>${this.description}</p>
                     <p>Built: ${this.year} | Listed: ${this.createdAt.toDateString()}</p>
+                    ${this.DeleteButton}
                     
                 </div>
             </div>
         </div>
         `
+    }
+    get DeleteButton() {
+        if (this.creatorId == AppState.account?.id) {
+            return `
+            <button class = "btn btn-rounded btn-danger" onclick="app.HousesController.removeHouse('${this.id}')" ><i class="mdi mdi-delete"></i></button>
+            `
+        }
+        else {
+            return ``
+        }
     }
 }
