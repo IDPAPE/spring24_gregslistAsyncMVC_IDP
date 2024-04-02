@@ -18,27 +18,42 @@ export class HousesController {
         await housesService.getHouses()
     }
     drawHouses() {
-        let houseCards = ''
-        AppState.houses.forEach(house => houseCards += house.HouseCard)
-        setHTML('houses-cards', houseCards)
+        try {
+            let houseCards = ''
+            AppState.houses.forEach(house => houseCards += house.HouseCard)
+            setHTML('houses-cards', houseCards)
+        } catch (error) {
+            Pop.toast(`couldn't draw houses`)
+            console.log(error)
+        }
     }
 
     async addHouse() {
-        event.preventDefault()
-        console.log('making a new listing for house');
-        const form = event.target
-        const houseData = getFormData(form)
-        console.log(houseData);
-        await housesService.addHouse(houseData)
+        try {
+            event.preventDefault()
+            console.log('making a new listing for house');
+            const form = event.target
+            const houseData = getFormData(form)
+            console.log(houseData);
+            await housesService.addHouse(houseData)
+        } catch (error) {
+            Pop.toast(`couldn't add a house`)
+            console.log(error)
+        }
     }
 
     async removeHouse(houseId) {
-        const confirmation = await Pop.confirm('would you like to delete this house?')
-        if (confirmation == false) {
-            return
-        }
-        else {
-            housesService.removeHouse(houseId)
+        try {
+            const confirmation = await Pop.confirm('would you like to delete this house?')
+            if (confirmation == false) {
+                return
+            }
+            else {
+                housesService.removeHouse(houseId)
+            }
+        } catch (error) {
+            Pop.toast(`couldn't remove a house`)
+            console.log(error)
         }
     }
 }
