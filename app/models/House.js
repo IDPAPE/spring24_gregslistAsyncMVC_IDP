@@ -10,8 +10,8 @@ export class House {
         this.description = data.description
         this.creatorId = data.creatorId
         this.creator = data.creator
-        this.createdAt = new Date(this.createdAt)
-        this.updatedAt = new Date(this.updatedAt)
+        this.createdAt = new Date(data.createdAt)
+        this.updatedAt = new Date(data.updatedAt)
     }
 
     get HouseCard() {
@@ -19,12 +19,12 @@ export class House {
         
         <div class="col-md-4 col-12">
             <div class="card text-start my-3">
-                <img class="card-img-top" src="${this.imgUrl}" alt="House Image Broken 😢" />
+                <img class="card-img-top card-img-height" src="${this.imgUrl}" alt="House Image Broken 😢" />
                 <div class="card-body">
                     <h4 class="card-title">$${this.price}</h4>
                     <p class="card-text">${this.bedrooms} bed | ${this.bathrooms} bath | ${this.levels} floors</p>
                     <p>${this.description}</p>
-                    <p>built: ${this.year} | Listed: ${this.createdAt.toDateString()}</p>
+                    <p>Built: ${this.year} | Listed: ${this.createdAt.toDateString()}</p>
                     
                 </div>
             </div>

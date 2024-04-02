@@ -9,3 +9,7 @@
 .profile-picture.profile-picture-sm {
   height: 64px;
 }
+
+.card-img-height {
+  max-height: 25dvh;
+}
